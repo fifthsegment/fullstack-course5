@@ -1,0 +1,14 @@
+<div class="FoundItems">
+	<div ng-repeat="item in items.found">
+		<u>{{item.name}}</u>
+		<div>
+			{{item.description}}
+		</div>
+		<div>
+			<button ng-click="items.onRemove({index:$index});">Don't want this one!</button>
+		</div>
+	</div>
+	<div ng-show="items.message.length != 0">
+		{{items.message}}
+	</div>
+</div>
