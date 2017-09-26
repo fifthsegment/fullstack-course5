@@ -1,0 +1,11 @@
+<div><a ui-sref="home">< Back to Home</a></div>
+<br/>
+<div>Select a category to view items:</div>
+
+<div>
+	<ul>
+		<li ng-repeat="item in catList.items">
+			<a ui-sref="items({short_name:item.short_name})">{{item.name}}</a>
+		</li>
+	</ul>
+</div>

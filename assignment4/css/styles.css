@@ -1,0 +1,25 @@
+body {
+  font-size: 1.2em;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+}
+
+.menu-item{
+  margin:20px;
+
+}
+
+.menu-item .title{
+  font-size: 1.2em;
+  font-weight: bold;
+}
