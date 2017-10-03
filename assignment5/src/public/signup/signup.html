@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			
+			<form name='signupForm' ng-submit="signupCtrl.submitSignupForm()">
+				<div class="form-group">
+					<h3>
+						Signup For our newsletter
+					</h3>
+				</div>
+				<div class="form-group">
+					First Name
+					<input type="text" name="first_name" class="form-control" placeholder="First Name"
+			          ng-model="signupCtrl.user.first_name"
+			          required
+			          minlength="2"
+			          ng-maxlength="50">
+			          {{ signupCtrl.user.first_name }}
+			        <span
+			            ng-if="(signupForm.first_name.$error.minlength || signupForm.first_name.$error.required) && signupForm.first_name.$touched">
+			            First name must be at least 2 characters long
+			        </span>			
+				</div>
+
+				<div class="form-group">
+					Last Name
+			        <input type="text" name="last_name" class="form-control" placeholder="Last Name"
+			          ng-model="signupCtrl.user.last_name"
+			          required
+			          minlength="2"
+			          ng-maxlength="50">
+			          {{ signupCtrl.user.last_name }}
+			        <span
+			            ng-if="(signupForm.last_name.$error.minlength || signupForm.last_name.$error.required) && signupForm.last_name.$touched">
+			            Last name must be at least 2 characters long
+			        </span>			
+				</div>
+
+				<div class="form-group">
+					Email
+					<input type="email" name="email" class="form-control"  placeholder="email@domain.com"
+						ng-model="signupCtrl.user.email"
+						required
+					>
+					{{ signupCtrl.user.email }}
+					<span
+						ng-if="signupForm.email.$invalid && signupForm.email.$touched"
+						>
+						Must be a valid email address: handle@domain format
+					</span>
+				</div>
+
+
+				<div class="form-group">
+					Phone
+					<input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
+			          ng-model="signupCtrl.user.phone"
+			          pattern="(\d{3})-(\d{3})-(\d{4})">
+			          {{ signupCtrl.user.phone }}
+			          <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+			            Phone must be in the format ###-###-####.
+			          </span>
+				</div>
+				 
+
+
+
+				<div class="form-group">
+					Menu Number or Short name
+					<input type="menu_short_name" name="menu_short_name" class="form-control"  
+						placeholder="Menu Number or Short name"
+						ng-model="signupCtrl.user.menu_short_name"
+						required
+					>
+					{{ signupCtrl.user.menu_short_name }}
+					<span ng-if="signupCtrl.short_name_msg.length > 0">
+						{{ signupCtrl.short_name_msg }}
+					</span>
+				</div>
+				<div class="form-group">
+					<div class="finalMessage" ng-if="signupCtrl.form_final_message.length > 0">
+						{{signupCtrl.form_final_message}}
+					</div>
+				</div>
+				
+
+		        <div class="form-group">
+				 	<button
+				 	type="submit"
+				 	class="btn btn-default"
+		          	ng-disabled="signupForm.$invalid"
+		          	ng-click="signupForm.submit()">Submit</button>
+		        </div>
+			</form>
+		</div>
+	</div>
+</div>

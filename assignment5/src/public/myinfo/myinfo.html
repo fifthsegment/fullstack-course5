@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div ng-if="myinfoCtrl.userInfo">
+			<div class="col-sm-5">
+				<div class="my-info-box">
+					<h2>Registered Info</h2>
+					Name: {{myinfoCtrl.userInfo.first_name }} {{myinfoCtrl.userInfo.last_name }}
+					<div>
+						Phone : {{myinfoCtrl.userInfo.phone }}
+					</div>
+					<div>
+						Email : {{myinfoCtrl.userInfo.email }}
+					</div>					
+				</div>
+
+			</div>
+			<div class="col-sm-5">
+				<div class="menu-item">
+					<h1>Menu Item Selected</h1>
+					<div class="menu-item-photo" ng-if="myinfoCtrl.userInfo.favItem.image_url">
+						<img class="img-responsive" ng-src="{{myinfoCtrl.userInfo.favItem.image_url}}">
+					</div>
+					<h2>{{myinfoCtrl.userInfo.favItem.name }}</h2>
+					<p>{{myinfoCtrl.userInfo.favItem.description }}</p>
+				</div>
+			</div>			
+		</div>
+		<div ng-if="!myinfoCtrl.userInfo">
+			<div class="col-sm-12">
+				You haven't signed up yet. <a ui-sref="public.signup">Click here to Signup now!</a>
+			</div>
+		</div>
+	</div>
+</div>
